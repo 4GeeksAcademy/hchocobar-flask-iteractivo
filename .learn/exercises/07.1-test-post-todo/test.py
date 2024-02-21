@@ -96,9 +96,11 @@ def test_add_new_todo():
         raise AttributeError("The function 'add_new_todo' should exist on app.py")
 
 
-"""
+
 @pytest.mark.it("The endpoint POST /todos should exist")
 def test_return(client):
-    response = client.post('/todos')
+    payload = { "done": True, "label": "Sample Todo 45" }
+    response = client.post('/todos', json=payload)
+    print('response status', response.status_code)
     assert response.status_code in [200, 201]
-"""
+

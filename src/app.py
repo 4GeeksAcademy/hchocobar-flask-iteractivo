@@ -10,21 +10,26 @@ def hello_world():
     return json_text
 
 
-@app.route('/todos', methods=['GET', 'POST'])
+# @app.route('/todos', methods=['GET', 'POST'])
+@app.route('/todos', methods=['GET'])
 def handle_todos():
     if request.method == 'GET':
         return todos
-    if request.method == 'POST':
+    """ if request.method == 'POST':
         request_body = request.json
         print('Incoming request with the following body', request_body)
         todos.append(request_body)
         return todos
-    return 'hola'
+    return 'hola' """
 
 
-""" @app.route('/todos', methods=['POST'])
+@app.route('/todos', methods=['POST'])
 def add_new_todo():
- """
+        request_body = request.json
+        print('Incoming request with the following body', request_body)
+        todos.append(request_body)
+        return todos, 200
+
 
 @app.route('/todos/<int:position>', methods=['DELETE'])
 def delete_todo(position):
